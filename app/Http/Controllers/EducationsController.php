@@ -19,9 +19,9 @@ class EducationsController extends Controller
             'school' => 'required',
         ]);
 
-        $type = new Education();
-        $type->title = $attributes['school'];
-        $type->save();
+        $education = new Education();
+        $education->school = $attributes['school'];
+        $education->save();
 
         return redirect('/console/educations/list')
             ->with('message', 'Education record has been added!');
