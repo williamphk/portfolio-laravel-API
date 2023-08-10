@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class EducationsController extends Controller
 {
+    public function list()
+    {
+        return view('educations.list', [
+            'educations' => Education::all()
+        ]);
+    }
+    
     public function addForm()
     {
 
