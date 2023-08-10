@@ -67,6 +67,7 @@ Route::get('/console/educations/add', [EducationsController::class, 'addForm'])-
 Route::post('/console/educations/add', [EducationsController::class, 'add'])->middleware('auth');
 
 // Read (List)
+Route::get('/console/educations/list', [EducationsController::class, 'list'])->middleware('auth');
 
 // Update (Edit)
 // GET: /console/educations/edit/{id}
