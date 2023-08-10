@@ -13,7 +13,7 @@ class EducationsController extends Controller
             'educations' => Education::all()
         ]);
     }
-    
+
     public function addForm()
     {
 
@@ -35,11 +35,32 @@ class EducationsController extends Controller
             ->with('message', 'A new education record has been added!');
     }
 
+    public function editForm(Education $education)
+    {
+        return view('educations.edit', [
+            'education' => $education,
+        ]);
+    }
+
+    public function edit(Education $education)
+    {
+
+        $attributes = request()->validate([
+            'school' => 'required',
+        ]);
+
+        $education->school = $attributes['school'];
+        $education->save();
+
+        return redirect('/console/educations/list')
+            ->with('message', 'Education record has been edited!');
+    }
+
     public function delete(Education $education)
     {
         $education->delete();
-        
+
         return redirect('/console/educations/list')
-            ->with('message', 'Education record has been deleted!');        
+            ->with('message', 'Education record has been deleted!');
     }
 }
