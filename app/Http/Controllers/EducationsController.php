@@ -26,4 +26,12 @@ class EducationsController extends Controller
         return redirect('/console/educations/list')
             ->with('message', 'A new education record has been added!');
     }
+
+    public function delete(Education $education)
+    {
+        $education->delete();
+        
+        return redirect('/console/educations/list')
+            ->with('message', 'Education record has been deleted!');        
+    }
 }

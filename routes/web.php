@@ -63,3 +63,6 @@ Route::get('/console/types/delete/{type:id}', [TypesController::class, 'delete']
 Route::get('/console/education/add', [EducationsController::class, 'addForm'])->middleware('auth');
 // POST: /console/education/add
 Route::post('/console/education/add', [EducationsController::class, 'add'])->middleware('auth');
+
+
+Route::get('/console/education/delete/{education:id}',[EducationsController::class,'delete'])->where('type', '[0-9]+')->middleware('auth');
