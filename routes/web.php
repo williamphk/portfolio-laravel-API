@@ -69,6 +69,10 @@ Route::post('/console/educations/add', [EducationsController::class, 'add'])->mi
 // Read (List)
 
 // Update (Edit)
+// GET: /console/educations/edit/{id}
+Route::get('/console/educations/edit/{education:id}', [EducationsController::class, 'editForm'])->where('education', '[0-9]+')->middleware('auth');
+// Post: /console/educations/edit/{id}
+Route::post('/console/educations/edit/{education:id}', [EducationsController::class, 'edit'])->where('education', '[0-9]+')->middleware('auth');
 
 // Delete
 // GET: /console/educations/delete/{id}
