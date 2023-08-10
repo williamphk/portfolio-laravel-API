@@ -57,3 +57,9 @@ Route::post('/console/types/add', [TypesController::class, 'add'])->middleware('
 Route::get('/console/types/edit/{type:id}', [TypesController::class, 'editForm'])->where('type', '[0-9]+')->middleware('auth');
 Route::post('/console/types/edit/{type:id}', [TypesController::class, 'edit'])->where('type', '[0-9]+')->middleware('auth');
 Route::get('/console/types/delete/{type:id}', [TypesController::class, 'delete'])->where('type', '[0-9]+')->middleware('auth');
+
+// Create (Add) Education
+// GET: /console/education/add
+Route::get('/console/education/add', [EducationsController::class, 'addForm'])->middleware('auth');
+// POST: /console/education/add
+Route::post('/console/education/add', [EducationsController::class, 'add'])->middleware('auth');
