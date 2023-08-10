@@ -24,6 +24,6 @@ class EducationsController extends Controller
         $education->save();
 
         return redirect('/console/educations/list')
-            ->with('message', 'Education record has been added!');
+            ->with('message', 'A new education record has been added!');
     }
 }
