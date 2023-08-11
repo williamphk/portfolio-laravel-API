@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Education;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class EducationsController extends Controller
@@ -29,6 +30,7 @@ class EducationsController extends Controller
 
         $education = new Education();
         $education->school = $attributes['school'];
+        $education->user_id = Auth::user()->id;
         $education->save();
 
         return redirect('/console/educations/list')
