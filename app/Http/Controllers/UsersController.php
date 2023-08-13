@@ -45,6 +45,8 @@ class UsersController extends Controller
             'first' => 'required',
             'last' => 'required',
             'email' => 'required|email|unique:users',
+            'linkedin' => 'nullable|url',
+            'github' => 'nullable|url',
             'password' => 'required',
         ]);
 
@@ -52,6 +54,8 @@ class UsersController extends Controller
         $user->first = $attributes['first'];
         $user->last = $attributes['last'];
         $user->email = $attributes['email'];
+        $user->linkedin = $attributes['linkedin'];
+        $user->github = $attributes['github'];
         $user->password = $attributes['password'];
         $user->save();
 
@@ -80,12 +84,16 @@ class UsersController extends Controller
                 'email',
                 Rule::unique('users')->ignore($user->id),
             ],
+            'linkedin' => 'nullable|url',
+            'github' => 'nullable|url',
             'password' => 'nullable',
         ]);
 
         $user->first = $attributes['first'];
         $user->last = $attributes['last'];
         $user->email = $attributes['email'];
+        $user->linkedin = $attributes['linkedin'];
+        $user->github = $attributes['github'];
 
         if($attributes['password']) $user->password = $attributes['password'];
 

@@ -71,6 +71,26 @@
                 </div>
 
                 <div class="w3-margin-bottom">
+                    <label for="linkedin">LinkedIn:</label>
+                    <input type="linkedin" name="linkedin" id="linkedin" value="<?= old('linkedin') ?>" required>
+
+                    <?php if($errors->first('linkedin')): ?>
+                        <br>
+                        <span class="w3-text-red"><?= $errors->first('linkedin'); ?></span>
+                    <?php endif; ?>
+                </div>
+
+                <div class="w3-margin-bottom">
+                    <label for="github">GitHub:</label>
+                    <input type="github" name="github" id="github" value="<?= old('github') ?>" required>
+
+                    <?php if($errors->first('github')): ?>
+                        <br>
+                        <span class="w3-text-red"><?= $errors->first('github'); ?></span>
+                    <?php endif; ?>
+                </div>
+
+                <div class="w3-margin-bottom">
                     <label for="password">Password:</label>
                     <input type="password" name="password" id="password">
 
