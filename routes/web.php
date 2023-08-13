@@ -78,3 +78,7 @@ Route::post('/console/educations/edit/{education:id}', [EducationsController::cl
 // Delete
 // GET: /console/educations/delete/{id}
 Route::get('/console/educations/delete/{education:id}', [EducationsController::class, 'delete'])->where('type', '[0-9]+')->middleware('auth');
+
+// For React
+Route::get('/users/{user:id}', [UsersController::class, 'details'])->where('user', '[0-9]+');
+Route::get('/users/{user:id}/projects', [ProjectsController::class, 'listProjectsForUser'])->where('user', '[0-9]+');

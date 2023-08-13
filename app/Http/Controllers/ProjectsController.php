@@ -19,6 +19,17 @@ class ProjectsController extends Controller
         ]);
     }
 
+    public function listProjectsForUser($id)
+    {
+        $projects = Project::where('user_id', $id)->get();
+
+        if (!$projects) {
+            return response()->json(['error' => 'Projects not found'], 404);
+        }
+
+        return response()->json($projects, 200);
+    }
+
     public function addForm()
     {
         return view('projects.add', [

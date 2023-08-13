@@ -19,6 +19,18 @@ class UsersController extends Controller
 
     }
 
+    public function details($id)
+    {
+        $user = User::find($id);
+    
+        if (!$user) {
+            return response()->json(['error' => 'User not found'], 404);
+        }
+    
+        return response()->json($user, 200);
+    }
+    
+
     public function addForm()
     {
 
