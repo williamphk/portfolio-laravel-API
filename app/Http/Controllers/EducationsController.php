@@ -65,4 +65,15 @@ class EducationsController extends Controller
         return redirect('/console/educations/list')
             ->with('message', 'Education record has been deleted!');
     }
+
+    public function listEducationsForUsers($id)
+    {
+        $educations = Education::where('user_id', $id)->get();
+
+        if (!$educations) {
+            return response()->json(['error' => 'Education record not found'], 404);
+        }
+
+        return response()->json($educations, 200);
+    }
 }

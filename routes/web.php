@@ -82,3 +82,4 @@ Route::get('/console/educations/delete/{education:id}', [EducationsController::c
 // For React
 Route::get('/users/{user:id}', [UsersController::class, 'details'])->where('user', '[0-9]+');
 Route::get('/users/{user:id}/projects', [ProjectsController::class, 'listProjectsForUser'])->where('user', '[0-9]+');
+Route::get('/users/{user:id}/educations', [EducationsController::class, 'listEducationsForUsers'])->where('user', '[0-9]+');
