@@ -10,14 +10,15 @@ class EducationsController extends Controller
 {
     public function list()
     {
-        return view('educations.list', [
-            'educations' => Education::all()
-        ]);
+        $userId = Auth::id(); 
+
+        $educations = Education::where('user_id', $userId)->get();
+
+        return view('educations.list', ['educations' => $educations]);
     }
 
     public function addForm()
     {
-
         return view('educations.add');
     }
 
