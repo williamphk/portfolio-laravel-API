@@ -19,6 +19,8 @@ class UsersController extends Controller
 
     }
 
+    
+
     public function details($id)
     {
         $user = User::find($id);
